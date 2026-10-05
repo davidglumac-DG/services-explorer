@@ -6,6 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#13294B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Services">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Creating Services opportunities through customer outcomes | Genesys Customer Success</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -836,6 +844,44 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
   body.print-one .sheet *{break-inside:avoid}
 }
 
+
+/* ===== Install ===== */
+.inst{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:16px;align-items:start}
+.inst-qr{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center}
+.inst-qr h4{font-size:10.5px;font-weight:700;letter-spacing:1.47px;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.inst-qr svg.qr{width:220px;height:220px;max-width:100%;margin:0 auto;display:block}
+.inst-url{margin-top:12px;font-size:14px;color:var(--navy);font-weight:500;word-break:break-all}
+.inst-qr .pact{justify-content:center}
+.inst-steps{display:grid;gap:14px}
+.inst-os{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.inst-os h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.inst-os ol{margin:0;padding-left:20px}
+.inst-os li{margin:6px 0;font-size:15px}
+.inst-os li b{font-weight:700;color:var(--ink)}
+.inst-os.mine{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-soft)}
+.inst-done{display:none;margin-bottom:16px;padding:14px 18px;border-radius:12px;background:var(--green-soft);color:var(--green);font-weight:500}
+.inst-done.show{display:block}
+.inst-steps .tip{margin-top:0}
+@media (max-width:980px){.inst{grid-template-columns:1fr}.inst-qr{order:2}}
+@media (display-mode:standalone){.inst-qr{display:none}}
+
+/* ===== Overview QR ===== */
+.qr-band{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+.qr-box{width:132px;height:132px;padding:6px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.qr-box svg{width:100%;height:100%;display:block}
+.qr-band small{font-size:10.5px;font-weight:700;letter-spacing:1.47px;text-transform:uppercase;color:var(--orange)}
+.qr-band h3{font-size:19px;font-weight:700;letter-spacing:-.3px;margin:2px 0 6px}
+.qr-band p{font-size:14.5px;color:var(--muted);max-width:560px}
+.qr-band .pact{margin-top:12px}
+.qr-band .qm{display:none}
+@media (max-width:640px){
+  .qr-band{grid-template-columns:1fr;padding:18px}
+  .qr-band .qd{display:none}.qr-band .qm{display:inline}
+  .qr-box{display:none}
+  .qr-band h3{font-size:17px}
+}
+@media (display-mode:standalone){.qr-band{display:none}}
+@media print{.qr-band{display:none}}
 </style>
 </head>
 <body>
@@ -843,7 +889,7 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
 <div class="shell">
 <aside class="side" id="side" aria-label="Sections">
   <a class="brand" href="#overview"><svg viewBox="0 0 40 68" role="img" aria-label="Genesys"><rect x="25" y="0" width="15" height="16" rx="7.5" fill="#FF4F1F"/><rect x="0" y="21" width="40" height="21" rx="10.5" fill="#FF4F1F"/><rect x="12" y="48" width="28" height="20" rx="9" fill="#FF4F1F"/></svg><span>Services opportunities<small>Customer Success</small></span></a>
-  <nav><div class="navgrp"><h6>Start</h6><a href="#overview" data-nav="overview">Overview</a><a href="#essentials" data-nav="essentials">Read this first</a></div><div class="navgrp"><h6>Recognise</h6><a href="#gaps" data-nav="gaps">The four gaps</a><a href="#role" data-nav="role">Your role</a><a href="#plays" data-nav="plays">The four plays</a></div><div class="navgrp"><h6>Practise</h6><a href="#simulator" data-nav="simulator">Conversation simulator</a></div><div class="navgrp"><h6>Act</h6><a href="#check" data-nav="check">Account check</a><a href="#finder" data-nav="finder">Signal finder</a><a href="#questions" data-nav="questions">Discovery questions</a><a href="#language" data-nav="language">Language</a><a href="#handoff" data-nav="handoff">Hand-off builder</a></div><div class="navgrp"><h6>Reference</h6><a href="#counts" data-nav="counts">What counts</a><a href="#quickwin" data-nav="quickwin">Quick win: Monitoring</a><a href="#whatif" data-nav="whatif">What if…</a><a href="#cheat" data-nav="cheat">Cheat sheet</a></div><div class="navgrp"><h6>You</h6><a href="#badges" data-nav="badges">Your badges</a></div></nav>
+  <nav><div class="navgrp"><h6>Start</h6><a href="#overview" data-nav="overview">Overview</a><a href="#essentials" data-nav="essentials">Read this first</a></div><div class="navgrp"><h6>Recognise</h6><a href="#gaps" data-nav="gaps">The four gaps</a><a href="#role" data-nav="role">Your role</a><a href="#plays" data-nav="plays">The four plays</a></div><div class="navgrp"><h6>Practise</h6><a href="#simulator" data-nav="simulator">Conversation simulator</a></div><div class="navgrp"><h6>Act</h6><a href="#check" data-nav="check">Account check</a><a href="#finder" data-nav="finder">Signal finder</a><a href="#questions" data-nav="questions">Discovery questions</a><a href="#language" data-nav="language">Language</a><a href="#handoff" data-nav="handoff">Hand-off builder</a></div><div class="navgrp"><h6>Reference</h6><a href="#counts" data-nav="counts">What counts</a><a href="#quickwin" data-nav="quickwin">Quick win: Monitoring</a><a href="#whatif" data-nav="whatif">What if…</a><a href="#cheat" data-nav="cheat">Cheat sheet</a></div><div class="navgrp"><h6>You</h6><a href="#badges" data-nav="badges">Your badges</a><a href="#install" data-nav="install">Add to your phone</a></div></nav>
   <a class="prog" id="progWidget" href="#badges"></a>
   <div class="contact-card"><h5>Question or lead?</h5><p>Send it to the UKI Customer Success leadership team.</p>
     <button class="btn orange sm" type="button" data-mail="lead">Pass on a lead</button><button class="btn ghost sm" type="button" data-mail="question">Ask a question</button></div>
@@ -897,6 +943,12 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
       <div class="pri"><span>Capacity or expertise limiting AI adoption</span><span>Delivery resources holding back expansion</span><span>Significant unused AI token capacity</span><span>Room to move up a Level of Experience Orchestration</span></div><div class="cta"><a class="btn ghost sm" href="#check">Check an account →</a><a class="btn ghost sm" href="#whatif">More questions: What if… →</a></div></div></div>
     <div class="contact-band"><div><h3>Have a question, or a lead to pass on?</h3><p>Email the UKI Customer Success leadership team. The email opens with a structure ready to fill in.</p></div>
       <div class="acts"><button class="btn orange" type="button" data-mail="lead">Pass on a lead</button><button class="btn ghost" type="button" data-mail="question">Ask a question</button></div></div>
+    <div class="qr-band">
+      <div class="qr-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" class="qr" role="img" aria-label="QR code for the explorer"><path class="qrline" stroke="#13294b" d="M2 2.5h7m1 0h2m4 0h2m1 0h2m4 0h1m2 0h7m-33 1h1m5 0h1m2 0h2m1 0h1m4 0h1m1 0h2m3 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m3 0h1m1 0h2m2 0h1m3 0h5m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m1 0h2m4 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m4 0h1m3 0h3m2 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h2m1 0h1m4 0h2m1 0h4m1 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m3 0h1m2 0h4m2 0h1m1 0h1m-24 1h1m3 0h1m1 0h4m1 0h1m5 0h13m2 0h1m-33 1h2m3 0h1m1 0h1m1 0h8m1 0h1m2 0h1m1 0h1m1 0h1m3 0h2m-29 1h7m3 0h1m2 0h1m1 0h1m2 0h2m1 0h2m4 0h1m1 0h1m-32 1h1m2 0h1m4 0h5m1 0h2m1 0h2m1 0h4m1 0h2m4 0h2m-32 1h3m2 0h1m1 0h1m1 0h5m3 0h1m1 0h4m2 0h1m1 0h2m-29 1h1m1 0h2m3 0h2m1 0h3m2 0h2m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m-31 1h2m2 0h5m2 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h2m-31 1h1m2 0h1m6 0h3m3 0h1m1 0h9m-28 1h4m1 0h2m1 0h2m1 0h1m3 0h3m2 0h3m1 0h1m1 0h1m1 0h1m2 0h1m-32 1h1m6 0h1m3 0h1m1 0h6m1 0h4m1 0h1m3 0h3m-30 1h1m3 0h1m1 0h1m1 0h1m3 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m-30 1h1m1 0h2m4 0h2m1 0h1m2 0h3m2 0h1m1 0h1m2 0h2m1 0h1m3 0h2m-29 1h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h2m2 0h4m1 0h1m1 0h1m1 0h2m-30 1h1m2 0h1m1 0h1m1 0h2m1 0h3m5 0h1m1 0h1m1 0h2m3 0h1m1 0h3m-30 1h1m2 0h2m1 0h3m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1m3 0h1m-30 1h1m1 0h1m4 0h2m4 0h5m1 0h1m1 0h2m3 0h1m2 0h2m-33 1h3m1 0h5m4 0h2m2 0h1m1 0h11m1 0h2m-25 1h1m1 0h2m3 0h2m1 0h1m4 0h2m3 0h1m1 0h2m-32 1h7m1 0h3m1 0h6m2 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m-32 1h1m5 0h1m5 0h1m1 0h2m1 0h2m2 0h2m1 0h1m3 0h1m2 0h1m-32 1h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h1m3 0h2m1 0h2m1 0h6m1 0h1m-32 1h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h2m1 0h2m3 0h1m1 0h2m1 0h3m1 0h1m-31 1h1m1 0h3m1 0h1m3 0h1m2 0h1m2 0h2m2 0h2m1 0h1m2 0h5m-31 1h1m5 0h1m2 0h1m1 0h4m2 0h2m1 0h2m1 0h2m-25 1h7m1 0h1m6 0h3m1 0h4m1 0h1m4 0h1m2 0h1"/></svg>
+</div>
+      <div><small>Take it with you</small><h3><span class="qd">Scan with your phone camera</span><span class="qm">Add it to your home screen</span></h3><p><span class="qd">Open the explorer on your phone, then add</span><span class="qm">Add</span> it to your home screen so it is one tap away before a customer call.</p>
+        <div class="pact"><a class="btn ghost sm" href="#install">How to add it to your phone →</a></div></div>
+    </div>
   </div>
 </section>
 
@@ -1279,6 +1331,34 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
       <p>The questions that come up most often, and the agreed answer to each. Select a question to open it.</p>
     </div>
     <div class="wi"><div class="wi-list" id="wiList"></div><div class="wi-a" id="wiAns" aria-live="polite"></div></div>
+  </div>
+</section>
+
+<!-- Install -->
+<section class="sec view" id="install">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="num">You · Add to your phone</div>
+      <h2>Add it to your phone</h2>
+      <p>Keep the explorer one tap away. It opens full screen like an app and, once you have opened it, it works without a signal.</p>
+    </div>
+    <div class="inst-done" id="instDone">You are using the installed version. Nothing more to do.</div>
+    <div class="inst">
+      <div class="inst-qr">
+        <h4>Scan with your phone camera</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" class="qr" role="img" aria-label="QR code for the explorer"><path class="qrline" stroke="#13294b" d="M2 2.5h7m1 0h2m4 0h2m1 0h2m4 0h1m2 0h7m-33 1h1m5 0h1m2 0h2m1 0h1m4 0h1m1 0h2m3 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m3 0h1m1 0h2m2 0h1m3 0h5m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m1 0h2m4 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m4 0h1m3 0h3m2 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h2m1 0h1m4 0h2m1 0h4m1 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m3 0h1m2 0h4m2 0h1m1 0h1m-24 1h1m3 0h1m1 0h4m1 0h1m5 0h13m2 0h1m-33 1h2m3 0h1m1 0h1m1 0h8m1 0h1m2 0h1m1 0h1m1 0h1m3 0h2m-29 1h7m3 0h1m2 0h1m1 0h1m2 0h2m1 0h2m4 0h1m1 0h1m-32 1h1m2 0h1m4 0h5m1 0h2m1 0h2m1 0h4m1 0h2m4 0h2m-32 1h3m2 0h1m1 0h1m1 0h5m3 0h1m1 0h4m2 0h1m1 0h2m-29 1h1m1 0h2m3 0h2m1 0h3m2 0h2m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m-31 1h2m2 0h5m2 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h2m-31 1h1m2 0h1m6 0h3m3 0h1m1 0h9m-28 1h4m1 0h2m1 0h2m1 0h1m3 0h3m2 0h3m1 0h1m1 0h1m1 0h1m2 0h1m-32 1h1m6 0h1m3 0h1m1 0h6m1 0h4m1 0h1m3 0h3m-30 1h1m3 0h1m1 0h1m1 0h1m3 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m-30 1h1m1 0h2m4 0h2m1 0h1m2 0h3m2 0h1m1 0h1m2 0h2m1 0h1m3 0h2m-29 1h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h2m2 0h4m1 0h1m1 0h1m1 0h2m-30 1h1m2 0h1m1 0h1m1 0h2m1 0h3m5 0h1m1 0h1m1 0h2m3 0h1m1 0h3m-30 1h1m2 0h2m1 0h3m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1m3 0h1m-30 1h1m1 0h1m4 0h2m4 0h5m1 0h1m1 0h2m3 0h1m2 0h2m-33 1h3m1 0h5m4 0h2m2 0h1m1 0h11m1 0h2m-25 1h1m1 0h2m3 0h2m1 0h1m4 0h2m3 0h1m1 0h2m-32 1h7m1 0h3m1 0h6m2 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m-32 1h1m5 0h1m5 0h1m1 0h2m1 0h2m2 0h2m1 0h1m3 0h1m2 0h1m-32 1h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h1m3 0h2m1 0h2m1 0h6m1 0h1m-32 1h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h2m1 0h2m3 0h1m1 0h2m1 0h3m1 0h1m-31 1h1m1 0h3m1 0h1m3 0h1m2 0h1m2 0h2m2 0h2m1 0h1m2 0h5m-31 1h1m5 0h1m2 0h1m1 0h4m2 0h2m1 0h2m1 0h2m-25 1h7m1 0h1m6 0h3m1 0h4m1 0h1m4 0h1m2 0h1"/></svg>
+
+        <p class="inst-url">davidglumac-dg.github.io/services-explorer/</p>
+        <div class="pact"><button class="btn ghost sm" type="button" data-copy="https://davidglumac-dg.github.io/services-explorer/">Copy link</button><button class="btn orange sm" type="button" id="instBtn" hidden>Install the app</button></div>
+      </div>
+      <div class="inst-steps">
+        <div class="inst-os" id="osIos"><h3><span class="os">iPhone and iPad</span></h3>
+          <ol><li>Open the link in <b>Safari</b>.</li><li>Tap the <b>Share</b> button (the square with an arrow pointing up).</li><li>Scroll down and tap <b>Add to Home Screen</b>.</li><li>Tap <b>Add</b>. The Services icon appears on your home screen.</li></ol></div>
+        <div class="inst-os" id="osAndroid"><h3><span class="os">Android</span></h3>
+          <ol><li>Open the link in <b>Chrome</b>.</li><li>Tap the <b>three-dot menu</b> in the top right.</li><li>Tap <b>Add to Home screen</b> or <b>Install app</b>.</li><li>Confirm. The Services icon appears with your other apps.</li></ol></div>
+        <div class="tip"><b>Principle: one tap beats one search.</b> If it is on your home screen, you will use it in the five minutes before a customer call.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1995,6 +2075,22 @@ renderWI();
 /* ---------- One-pager print ---------- */
 $("#opPrint").addEventListener("click",()=>{document.body.classList.add("print-one");setTimeout(()=>{window.print()},60)});
 window.addEventListener("afterprint",()=>document.body.classList.remove("print-one"));
+
+
+/* ---------- Install / PWA ---------- */
+(function(){
+  const ua=navigator.userAgent||"";const ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);const android=/Android/.test(ua);
+  const steps=document.querySelector(".inst-steps");
+  if(ios){document.getElementById("osIos").classList.add("mine")}
+  else if(android){document.getElementById("osAndroid").classList.add("mine");steps.insertBefore(document.getElementById("osAndroid"),document.getElementById("osIos"))}
+  const standalone=window.matchMedia&&window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  if(standalone)document.getElementById("instDone").classList.add("show");
+  let deferred=null;const btn=document.getElementById("instBtn");
+  window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;btn.hidden=false});
+  btn.addEventListener("click",async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(_){}deferred=null;btn.hidden=true});
+  window.addEventListener("appinstalled",()=>{btn.hidden=true;document.getElementById("instDone").classList.add("show")});
+  if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
+})();
 
 /* ---------- Contact ---------- */
 const CONTACT="CSEMEA_UKILeadership@genesys.com";
