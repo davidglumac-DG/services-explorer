@@ -882,6 +882,16 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
 }
 @media (display-mode:standalone){.qr-band{display:none}}
 @media print{.qr-band{display:none}}
+
+/* ===== STIR link ===== */
+.stir-link{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:3px;position:relative}
+.stir-link:hover{color:var(--orange)}
+.stir-link::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--navy);color:#fff;font-size:12.5px;font-weight:500;letter-spacing:0;text-transform:none;white-space:nowrap;padding:6px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .15s;z-index:20;line-height:1.3}
+.stir-link:hover::after,.stir-link:focus-visible::after{opacity:1}
+@media (hover:none){.stir-link::after{display:none}}
+@media print{.stir-link{text-decoration:none}.stir-link::after{display:none}}
+.sec-head .stir-def{font-size:15px;color:var(--navy);font-weight:500;letter-spacing:.02em}
+.sec-head .stir-def b{color:var(--orange);font-weight:700}
 </style>
 </head>
 <body>
@@ -911,7 +921,7 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
     <div class="steps">
       <div class="step"><div class="n">01</div><h3>Spot the signal</h3><p>Customers describe symptoms. They rarely ask for Services.</p></div>
       <div class="step"><div class="n">02</div><h3>Ask one useful question</h3><p>Connect the symptom to an outcome, a risk and a timeline.</p></div>
-      <div class="step"><div class="n">03</div><h3>Hand off with STIR</h3><p>Route it to the right owner, with the context they need.</p></div>
+      <div class="step"><div class="n">03</div><h3>Hand off with <a class="stir-link" href="#handoff" data-tip="Signal, Timing, Impact, Route">STIR</a></h3><p>Signal, Timing, Impact, Route: give the right owner the context they need.</p></div>
     </div>
     <div class="cta">
       <a class="btn orange" href="#essentials">Read this first →</a>
@@ -998,7 +1008,7 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
           <p class="op-rule">Never commit scope, effort, dates or price. Bring in the SED and the AE.</p></div>
       </div>
 
-      <h4 class="op-h">Hand off with STIR</h4>
+      <h4 class="op-h">Hand off with <a class="stir-link" href="#handoff" data-tip="Signal, Timing, Impact, Route">STIR</a></h4>
       <div class="op-stir">
         <div><b>S</b><span><strong>Signal</strong>What did the customer say, do or show?</span></div>
         <div><b>T</b><span><strong>Timing</strong>Why does this matter now?</span></div>
@@ -1201,6 +1211,7 @@ html:not(.js) .nojs-note{display:block;margin:12px 18px 0;padding:12px 16px;bord
     <div class="sec-head">
       <div class="num">07 · Hand-off</div>
       <h2>Use STIR for every hand-off</h2>
+      <p class="stir-def"><b>S</b>ignal · <b>T</b>iming · <b>I</b>mpact · <b>R</b>oute</p>
       <p>A strong hand-off explains the signal, the timing, the impact and the route. You stay involved as context owner; the AE and Services own the next steps.</p>
     </div>
     <div class="stir">
@@ -1589,7 +1600,7 @@ function renderProgress(){
   const r=document.getElementById("readyBand");
   if(r){const b=BADGES[5],got=P.badges.ready;const passed=typeof SCEN!=="undefined"?SCEN.filter(s=>(P.sim[s.id]||0)>=7).length:0;
     r.className="ready"+(got?"":" locked");
-    r.innerHTML=badgeSVG(b)+`<div><h3>${got?"You are Services-ready":"Services-ready"}</h3><p>${got?"You have passed every scenario in the simulator. You can spot the signal, open the conversation safely and hand off with STIR.":`Pass all six simulator scenarios to earn this badge. You have passed ${passed} of 6.`}</p>${got?"":`<div class="cta" style="margin-top:12px"><a class="btn orange sm" href="#simulator">Go to the simulator →</a></div>`}</div>`}
+    r.innerHTML=badgeSVG(b)+`<div><h3>${got?"You are Services-ready":"Services-ready"}</h3><p>${got?"You have passed every scenario in the simulator. You can spot the signal, open the conversation safely and hand off with <a class=\"stir-link\" href=\"#handoff\" data-tip=\"Signal, Timing, Impact, Route\">STIR</a>.":`Pass all six simulator scenarios to earn this badge. You have passed ${passed} of 6.`}</p>${got?"":`<div class="cta" style="margin-top:12px"><a class="btn orange sm" href="#simulator">Go to the simulator →</a></div>`}</div>`}
 }
 
 /* ---------- Gaps ---------- */
@@ -1732,7 +1743,7 @@ var STORY={
     out:["Escalation","Scope reduced at renewal","Expansion lost"]},
   spotted:{steps:[
     {m:"Month 6",h:"The signal is spotted",p:"The CSM asks what supervisors would need to do differently for WEM to deliver value.",key:true},
-    {m:"Month 6",h:"STIR hand-off",p:"The same week, the AE and Services receive the signal, timing, impact and route."},
+    {m:"Month 6",h:"<a class=\"stir-link\" href=\"#handoff\" data-tip=\"Signal, Timing, Impact, Route\">STIR</a> hand-off",p:"The same week, the AE and Services receive the signal, timing, impact and route."},
     {m:"Month 7",h:"Optimisation assessment",p:"Services find why the forecasts aren’t trusted, plus three quick wins."},
     {m:"Month 9",h:"Improvement plan lands",p:"Supervisors schedule in WEM. The spreadsheets are retired."},
     {m:"Month 12",h:"Value evidenced at the QBR",p:"The COO sees forecast accuracy and adherence improving against the business case."},
@@ -2032,7 +2043,7 @@ var WHATIF=[
   say:"I don’t want to give you a number that turns out to be wrong. Let me bring in our Services lead and our Account Executive, who can take you through the options properly.",
   acts:[{t:"Build a hand-off →",href:"#handoff",cls:"orange"}]},
  {q:"What if the AE isn’t engaged?",short:"Send the hand-off anyway, and escalate before the customer’s next milestone.",
-  body:"<p>Send your STIR hand-off to the AE and copy a SED, so the signal is on record. If nobody has picked it up before the customer’s next milestone, such as a QBR, renewal review or go-live, raise it with the UKI Customer Success leadership team.</p><p>Keep the customer informed that the right people are being involved, without committing to dates.</p>",
+  body:"<p>Send your <a class=\"stir-link\" href=\"#handoff\" data-tip=\"Signal, Timing, Impact, Route\">STIR</a> hand-off to the AE and copy a SED, so the signal is on record. If nobody has picked it up before the customer’s next milestone, such as a QBR, renewal review or go-live, raise it with the UKI Customer Success leadership team.</p><p>Keep the customer informed that the right people are being involved, without committing to dates.</p>",
   acts:[{t:"Send to UKI leadership",mail:"lead",cls:"orange"},{t:"Build a hand-off",href:"#handoff"}]},
  {q:"What if the customer expects the work to be free?",short:"Neither agree nor refuse on the spot.",
   body:"<p>Free-of-charge work does not count towards the Services number, and it sets a precedent for the rest of the relationship. Acknowledge the request, explain that you will explore the best route with the AE and Services, and let them decide what is appropriate.</p>",
